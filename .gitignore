@@ -1,1 +1,6 @@
 /Debug/
+/Makefile~
+/ioport.ko
+/ioport.mod.c
+/ioport.mod.o
+/ioport.o

@@ -33,18 +33,13 @@ struct LED_dev  *LED_devp;
  * **************************************************************/
  int LED_open(struct inode *inode, struct file *filp)
 {
-//   struct LED_dev  *dev;
-//   dev = container_of(inode->i_cdev, struct LED_dev , cdev);
-//   filp->private_data = dev;
     printk("In the open process! turn off the LED!\n");
     outl(0x1111 | inl((unsigned long) S5PV210_GPJ2CON), (unsigned long) S5PV210_GPJ2CON);
     outl(0xFFAA | inl((unsigned long) S5PV210_GPJ2PUD), (unsigned long) S5PV210_GPJ2PUD);
     outl(0xF0 | inl((unsigned long) S5PV210_GPJ2DAT), (unsigned long) S5PV210_GPJ2DAT);
    return 0;
 }
- /*********************************************************
-  * Another comment
-  *********************************************************/
+
 int LED_release(struct inode *inode, struct file *filp)
 {
 	 return 0;
